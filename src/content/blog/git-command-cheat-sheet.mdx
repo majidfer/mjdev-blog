@@ -1,0 +1,179 @@
+---
+id: 3
+slug: 'git-command-cheat-sheet'
+title: 'Git Command Cheat Sheet'
+description: 'Ringkasan command Git yang paling sering dipakai untuk kerja harian dan kolaborasi tim.'
+imageUrl: '/images/blog-post/post-3.webp'
+imageAlt: 'Git command cheat sheet'
+pubDate: 'April 23, 2026'
+category: 'Developer Workflow'
+author: 'Admin'
+avatarUrl: '/images/avatars/1.webp'
+readTime: 4
+featured: true
+---
+
+## Git Command Cheat Sheet
+
+### Biar Nggak Panik Pas Kerja Sama Git
+
+Git itu simpel kalau dipakai tiap hari, tapi sering bikin bingung kalau lupa command. Biasanya masalahnya bukan di Git-nya, tapi di momen pas lagi buru-buru lalu lupa urutan langkah.
+
+Cheat sheet ini gue bikin buat bantu nginget command yang paling sering dipakai. Fokusnya ke workflow harian, bukan semua fitur Git yang jarang disentuh.
+
+## Mulai dari Awal
+
+Kalau baru mulai project:
+
+```bash
+git init
+git status
+git add .
+git commit -m "Initial commit"
+```
+
+`git init` dipakai buat bikin repository baru. Setelah itu `git status` buat cek perubahan, `git add .` buat stage file, lalu `git commit` buat simpan snapshot pertama.
+
+Kalau clone dari repository yang sudah ada:
+
+```bash
+git clone https://github.com/username/nama-repo.git
+cd nama-repo
+```
+
+## Workflow Harian
+
+Ini command yang paling sering kepakai saat kerja:
+
+```bash
+git status
+git add nama-file
+git add .
+git commit -m "Pesan commit"
+git push
+git pull
+```
+
+Penjelasan singkat:
+
+- `git status`: lihat file apa saja yang berubah
+- `git add nama-file`: masukkan file tertentu ke stage
+- `git add .`: stage semua perubahan
+- `git commit -m`: simpan perubahan ke history
+- `git push`: kirim commit ke remote
+- `git pull`: ambil perubahan terbaru dari remote
+
+Kalau tim kamu aktif banget, biasakan cek `git status` sebelum commit. Itu kebiasaan kecil yang sering nyelametin dari salah commit.
+
+## Cek Riwayat
+
+Kadang kamu cuma perlu lihat siapa ngubah apa dan kapan:
+
+```bash
+git log
+git log --oneline
+git log --graph --oneline --decorate
+```
+
+Kalau mau cepat, `git log --oneline` biasanya paling enak dibaca. Kalau lagi tracking alur branch, versi graph lebih membantu.
+
+## Bekerja Dengan Branch
+
+Branch dipakai biar kerjaan rapi dan nggak ganggu branch utama:
+
+```bash
+git branch
+git branch nama-branch
+git checkout nama-branch
+git checkout -b nama-branch-baru
+git switch nama-branch
+git switch -c nama-branch-baru
+```
+
+Yang paling sering gue pakai sekarang:
+
+```bash
+git switch -c feature/navbar-baru
+```
+
+Lebih pendek dan lebih jelas kalau lagi bikin branch baru.
+
+## Ambil Perubahan Dari Branch Lain
+
+Kalau branch kamu sudah siap digabung:
+
+```bash
+git merge nama-branch
+```
+
+Kalau mau rebase supaya history lebih lurus:
+
+```bash
+git rebase main
+```
+
+Pakai `merge` kalau mau aman dan simpel. Pakai `rebase` kalau kamu paham alur history dan tim kamu memang pakai pola itu.
+
+## Balikin Perubahan
+
+Ini bagian yang paling sering dicari pas ada salah edit:
+
+```bash
+git restore nama-file
+git restore .
+git reset HEAD nama-file
+git revert hash-commit
+```
+
+Bedanya singkat:
+
+- `git restore`: buang perubahan lokal
+- `git reset HEAD`: keluarkan file dari stage
+- `git revert`: bikin commit baru untuk membatalkan commit lama
+
+Kalau commit sudah terlanjur masuk ke shared branch, biasanya `git revert` lebih aman daripada rewrite history.
+
+## Lihat Perbedaan
+
+Kalau pengin tahu apa yang berubah:
+
+```bash
+git diff
+git diff --staged
+git diff main
+```
+
+`git diff` penting banget sebelum commit. Ini cara paling cepat buat ngecek apakah perubahan kamu memang sesuai niat awal.
+
+## Kerja Dengan Remote
+
+Command dasar untuk remote repo:
+
+```bash
+git remote -v
+git fetch
+git pull origin main
+git push origin feature/navbar-baru
+```
+
+Kalau cuma mau lihat update dari server tanpa langsung merge, pakai `git fetch`.
+
+## Ringkasan Cepat
+
+Kalau cuma mau ingat inti workflow-nya, pakai urutan ini:
+
+```bash
+git status
+git switch -c nama-branch
+git add .
+git commit -m "Pesan commit"
+git push
+```
+
+Itu sudah cukup buat sebagian besar kerja harian.
+
+## Penutup
+
+Git memang kelihatan banyak command, tapi kebanyakan kerjaan harian cuma muter di beberapa command inti. Begitu alurnya kebentuk, kamu bisa kerja lebih cepat dan lebih tenang.
+
+Kalau mau, next step paling berguna adalah bikin kebiasaan cek `git status`, commit kecil tapi jelas, dan pakai branch buat tiap tugas.
