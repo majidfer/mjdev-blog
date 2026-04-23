@@ -41,8 +41,8 @@ const Blog = ({ relatedPosts }: { relatedPosts: BlogPost[] }) => {
               key={post.id}
               className='group h-full cursor-pointer overflow-hidden shadow-none transition-all duration-300'
             >
-              <Card className='shadow-none'>
-                <CardContent className='space-y-3.5'>
+              <Card className='h-full shadow-none'>
+                <CardContent className='flex h-full flex-col space-y-3.5'>
                   <div className='mb-6 overflow-hidden rounded-lg sm:mb-12'>
                     <img
                       src={post.imageUrl}
@@ -51,16 +51,20 @@ const Blog = ({ relatedPosts }: { relatedPosts: BlogPost[] }) => {
                       loading='lazy'
                     />
                   </div>
-                  <div className='flex items-center justify-between gap-1.5'>
-                    <div className='text-muted-foreground flex items-center gap-1.5'>
-                      <CalendarDaysIcon className='size-5' />
-                      <span>{post.pubDate}</span>
+                  <div className='flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3'>
+                    <div className='text-muted-foreground flex min-w-0 items-center gap-1.5'>
+                      <CalendarDaysIcon className='size-5 shrink-0' />
+                      <span className='truncate'>{post.pubDate}</span>
                     </div>
-                    <Badge className='bg-primary/10 text-primary border-0 text-sm'>{post.category}</Badge>
+                    <Badge className='bg-primary/10 text-primary w-fit max-w-full shrink-0 border-0 text-sm whitespace-nowrap'>
+                      <span className='truncate'>{post.category}</span>
+                    </Badge>
                   </div>
-                  <h3 className='line-clamp-2 text-lg font-medium md:text-xl'>{post.title}</h3>
+                  <h3 className='line-clamp-2 min-h-[3.5rem] text-lg font-medium leading-tight md:min-h-[4.5rem] md:text-xl'>
+                    {post.title}
+                  </h3>
                   <p className='text-muted-foreground line-clamp-2'>{post.description}</p>
-                  <div className='flex items-center justify-between'>
+                  <div className='mt-auto flex items-center justify-between pt-2'>
                     <span className='text-sm font-medium'>{post.author}</span>
                     <Button
                       size='icon'
