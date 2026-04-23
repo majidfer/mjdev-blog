@@ -1,19 +1,19 @@
 // Site Configuration
 // Centralized configuration for site metadata, SEO, and branding
 
-export const SITE_TITLE = 'Demo: Ink - Blog Landing Page | Shadcn Studio'
+export const SITE_TITLE = 'Blog MJDEV'
 export const SITE_DESCRIPTION =
-  'Ink is a free Shadcn UI Blog Landing Page template to publish articles, insights, and categories with a clean, fast, and readable layout.'
+  'Kumpulan tulisan MJDEV tentang hal-hal seputar teknologi, bisnis, dan lifestyle. Temukan artikel menarik dan wawasan terbaru bersama MJDEV.'
 
-export const GITHUB_URL = 'https://github.com/yourusername/master-shadcn-astro'
-export const SITE_URL = 'https://shadcnstudio.com/'
+export const GITHUB_URL = 'https://github.com/majidfer/mjdev-blog'
+export const SITE_URL = 'https://mjdev.my.id/'
 
 export const SITE_METADATA = {
   title: {
-    default: 'Demo: Ink - Blog Landing Page | Shadcn Studio'
+    default: 'Blog MJDEV'
   },
   description:
-    'Ink is a free Shadcn UI Blog Landing Page template to publish articles, insights, and categories with a clean, fast, and readable layout.',
+    'Kumpulan tulisan MJDEV tentang hal-hal seputar teknologi, bisnis, dan lifestyle. Temukan artikel menarik dan wawasan terbaru bersama MJDEV.',
   keywords: [
     'Astro',
     'astro template',
@@ -55,16 +55,16 @@ export const SITE_METADATA = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'Ink',
-    title: 'Ink - Blog Landing Page | Shadcn Studio',
+    siteName: 'Blog MJDEV',
+    title: 'Blog MJDEV',
     description:
-      'Ink is a free Shadcn UI Blog Landing Page template to publish articles, insights, and categories with a clean, fast, and readable layout.',
+      'Kumpulan tulisan MJDEV tentang hal-hal seputar teknologi, bisnis, dan lifestyle. Temukan artikel menarik dan wawasan terbaru bersama MJDEV.',
     images: [
       {
         url: '/images/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Ink - Blog Landing Page',
+        alt: 'Blog MJDEV',
         type: 'image/png'
       }
     ]
@@ -73,9 +73,9 @@ export const SITE_METADATA = {
     card: 'summary_large_image',
     site: '@shadcnstudio',
     creator: '@shadcnstudio',
-    title: 'Ink - Blog Landing Page | Shadcn Studio',
+    title: 'Blog MJDEV',
     description:
-      'Ink is a free Shadcn UI Blog Landing Page template to publish articles, insights, and categories with a clean, fast, and readable layout.',
+      'Kumpulan tulisan MJDEV tentang hal-hal seputar teknologi, bisnis, dan lifestyle. Temukan artikel menarik dan wawasan terbaru bersama MJDEV.',
     images: ['/images/og-image.png']
   },
   verification: {
@@ -95,11 +95,11 @@ export const SOCIAL_LINKS = {
 
 // Company information for structured data
 export const COMPANY_INFO = {
-  name: 'Ink',
-  legalName: 'shadcn Studio Inc.',
+  name: 'Blog MJDEV',
+  legalName: 'MJDEV',
   url: SITE_URL,
   logo: `/images/site-logo.png`,
-  foundingDate: '2024',
+  foundingDate: '2026',
   address: {
     streetAddress: '123 Web Dev Street',
     addressLocality: 'San Francisco',
