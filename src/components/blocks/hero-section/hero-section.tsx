@@ -32,48 +32,52 @@ const HeroSection = ({ blogData }: { blogData: BlogPost[] }) => {
           </form>
         </div>
 
-        <div className='grid grid-cols-1 gap-6 sm:grid-cols-2'>
+        <div className='grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2'>
           {featuredPosts.map((item, index) => (
-            <div key={`${item.author}-${index}`} className='group'>
-              <Card className='cursor-default py-0 shadow-none'>
-                <CardContent className='grid grid-cols-1 px-0 xl:grid-cols-2'>
-                  <div className='p-6'>
-                    <a href={`/blog/${item.slug}`} className='block h-59.5 w-full overflow-hidden rounded-lg'>
+            <div key={`${item.author}-${index}`} className='group h-full'>
+              <Card className='h-full overflow-hidden border-border/60 py-0 shadow-sm transition-shadow duration-200 group-hover:shadow-md'>
+                <CardContent className='grid h-full grid-cols-1 px-0 xl:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)]'>
+                  <div className='p-5 sm:p-6 xl:pr-3'>
+                    <a href={`/blog/${item.slug}`} className='block h-full overflow-hidden rounded-xl bg-muted'>
                       <img
                         src={item.imageUrl}
                         alt={item.imageAlt}
-                        className='w-full object-cover transition-transform duration-300 group-hover:scale-105'
+                        className='aspect-[4/3] h-full w-full object-cover transition-transform duration-300 group-hover:scale-105'
                         loading='lazy'
                       />
                     </a>
                   </div>
-                  <div className='flex flex-col justify-center gap-3 p-6'>
-                    <div className='flex items-center gap-1.5 py-1'>
-                      <div className='text-muted-foreground flex grow items-center gap-1.5'>
-                        <CalendarDaysIcon className='size-5' />
-                        <p>{item.pubDate}</p>
+                  <div className='flex h-full flex-col justify-between gap-5 p-5 pt-0 sm:p-6 sm:pt-0 xl:pl-3 xl:pt-6'>
+                    <div className='space-y-5'>
+                      <div className='flex items-start justify-between gap-4'>
+                        <div className='text-muted-foreground flex min-w-0 items-center gap-1.5 text-sm whitespace-nowrap'>
+                          <CalendarDaysIcon className='size-4 shrink-0' />
+                          <p>{item.pubDate}</p>
+                        </div>
+                        <Badge
+                          className='bg-primary/10 text-primary hover:bg-primary/15 shrink-0 border-0 px-3 py-1 text-xs sm:text-sm'
+                          onClick={e => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            window.location.href = `/#category-${item.category}`
+                          }}
+                        >
+                          {item.category}
+                        </Badge>
                       </div>
-                      <Badge
-                        className='bg-primary/10 text-primary cursor-pointer border-0 text-sm'
-                        onClick={e => {
-                          e.preventDefault()
-                          e.stopPropagation()
-                          window.location.href = `/#category-${item.category}`
-                        }}
-                      >
-                        {item.category}
-                      </Badge>
-                    </div>
-                    <a href={`/blog/${item.slug}`}>
-                      <h3 className='text-xl font-medium'>{item.title}</h3>
-                    </a>
 
-                    <p className='text-muted-foreground'>{item.description}</p>
-                    <div className='flex w-full items-center justify-between gap-1 py-1'>
-                      <span className='cursor-pointer text-sm font-medium'>{item.author}</span>
+                      <a href={`/blog/${item.slug}`} className='block'>
+                        <h3 className='text-2xl leading-tight font-semibold tracking-tight'>{item.title}</h3>
+                      </a>
+
+                      <p className='text-muted-foreground max-w-prose text-base leading-7'>{item.description}</p>
+                    </div>
+
+                    <div className='flex w-full items-center justify-between gap-4 pt-2'>
+                      <span className='cursor-pointer text-sm font-semibold'>{item.author}</span>
                       <Button
                         size='icon'
-                        className='group-hover:bg-primary! bg-background text-foreground hover:bg-primary! hover:text-primary-foreground group-hover:text-primary-foreground border group-hover:border-transparent hover:border-transparent'
+                        className='border-border/80 bg-background text-foreground transition-colors group-hover:border-transparent group-hover:bg-primary group-hover:text-primary-foreground hover:border-transparent hover:bg-primary hover:text-primary-foreground'
                         asChild
                       >
                         <a href={`/blog/${item.slug}`}>
