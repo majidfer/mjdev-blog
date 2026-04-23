@@ -46,3 +46,6 @@ build/
 
 # jetbrains setting folder
 .idea/
+
+# screnshot file
+public/screenshot.png
