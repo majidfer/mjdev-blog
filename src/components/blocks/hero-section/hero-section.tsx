@@ -49,13 +49,9 @@ const HeroSection = ({ blogData }: { blogData: BlogPost[] }) => {
                   </div>
                   <div className='flex h-full flex-col justify-between gap-5 p-5 pt-0 sm:p-6 sm:pt-0 xl:pl-3 xl:pt-6'>
                     <div className='space-y-5'>
-                      <div className='flex items-start justify-between gap-4'>
-                        <div className='text-muted-foreground flex min-w-0 items-center gap-1.5 text-sm whitespace-nowrap'>
-                          <CalendarDaysIcon className='size-4 shrink-0' />
-                          <p>{item.pubDate}</p>
-                        </div>
+                      <div className='space-y-2'>
                         <Badge
-                          className='bg-primary/10 text-primary hover:bg-primary/15 shrink-0 border-0 px-3 py-1 text-xs sm:text-sm'
+                          className='bg-primary/10 text-primary hover:bg-primary/15 w-fit max-w-full shrink-0 border-0 px-3 py-1 text-xs sm:text-sm whitespace-nowrap'
                           onClick={e => {
                             e.preventDefault()
                             e.stopPropagation()
@@ -64,6 +60,10 @@ const HeroSection = ({ blogData }: { blogData: BlogPost[] }) => {
                         >
                           {item.category}
                         </Badge>
+                        <div className='text-muted-foreground flex min-w-0 items-center gap-1.5 text-sm'>
+                          <CalendarDaysIcon className='size-4 shrink-0' />
+                          <p>{item.pubDate}</p>
+                        </div>
                       </div>
 
                       <a href={`/blog/${item.slug}`} className='block'>

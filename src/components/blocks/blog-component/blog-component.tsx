@@ -65,13 +65,9 @@ const BlogGrid = ({ posts, onCategoryClick }: { posts: BlogPost[]; onCategoryCli
                   loading='lazy'
                 />
               </div>
-              <div className='flex items-center justify-between gap-1.5'>
-                <div className='text-muted-foreground flex items-center gap-1.5'>
-                  <CalendarDaysIcon className='size-5' />
-                  <p>{post.pubDate}</p>
-                </div>
+              <div className='space-y-2'>
                 <Badge
-                  className='bg-primary/10 text-primary badge rounded-full border-0 text-sm'
+                  className='bg-primary/10 text-primary badge w-fit max-w-full shrink-0 rounded-full border-0 text-sm whitespace-nowrap'
                   onClick={e => {
                     e.preventDefault()
                     e.stopPropagation()
@@ -80,6 +76,10 @@ const BlogGrid = ({ posts, onCategoryClick }: { posts: BlogPost[]; onCategoryCli
                 >
                   {post.category}
                 </Badge>
+                <div className='text-muted-foreground flex min-w-0 items-center gap-1.5'>
+                  <CalendarDaysIcon className='size-5 shrink-0' />
+                  <p className='truncate'>{post.pubDate}</p>
+                </div>
               </div>
               <h3 className='line-clamp-2 text-lg font-medium md:text-xl'>{post.title}</h3>
               <p className='text-muted-foreground line-clamp-2'>{post.description}</p>
