@@ -55,7 +55,7 @@ const Footer = () => {
       <div className='mx-auto flex max-w-7xl justify-center px-4 py-8 sm:px-6 lg:px-8'>
         <p className='flex items-center gap-1 text-center font-medium text-balance max-sm:flex-col'>
           <span>{new Date().getFullYear()}</span>
-          <span>Made with care for better web.</span>
+          <span>With ❤️ from Bandung, Indonesia.</span>
         </p>
       </div>
     </footer>
