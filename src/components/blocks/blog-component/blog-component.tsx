@@ -118,12 +118,12 @@ const Blog = ({ blogData = [] }: BlogProps) => {
     setSelectedTab(tab)
 
     if (tab === 'All') {
-      window.location.href = '#categories'
+      window.location.href = '#blogs'
     }
   }
 
   return (
-    <section className='py-8 sm:py-16 lg:py-24' id='categories'>
+    <section className='py-8 sm:py-16 lg:py-24' id='blogs'>
       <div className='mx-auto max-w-7xl space-y-8 px-4 sm:px-6 lg:space-y-16 lg:px-8'>
         {/* Header */}
         <div className='space-y-4'>
