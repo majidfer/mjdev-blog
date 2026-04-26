@@ -60,7 +60,7 @@ const Blog = ({ relatedPosts }: { relatedPosts: BlogPost[] }) => {
                       <span className='truncate'>{post.category}</span>
                     </Badge>
                   </div>
-                  <h3 className='line-clamp-2 min-h-[3.5rem] text-lg font-medium leading-tight md:min-h-[4.5rem] md:text-xl'>
+                  <h3 className='line-clamp-2 min-h-[2rem] text-lg leading-tight font-medium md:min-h-[3rem] md:text-xl'>
                     {post.title}
                   </h3>
                   <p className='text-muted-foreground line-clamp-2'>{post.description}</p>
