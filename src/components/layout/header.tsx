@@ -104,9 +104,8 @@ const Header = ({ navigationData, className }: HeaderProps) => {
     >
       <div className='mx-auto flex h-full max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8'>
         {/* Logo */}
-        <a href='/#home' className='flex items-center gap-3'>
+        <a href='/#home' className='flex items-center'>
           <LogoSvg />
-          <span className='text-primary text-[20px] font-semibold'>INK</span>
         </a>
 
         {/* Navigation */}
