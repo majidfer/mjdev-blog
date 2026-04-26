@@ -1,12 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious
-} from '@/components/ui/carousel'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 
 export type TestimonialItem = {
   name: string
@@ -23,7 +17,7 @@ type TestimonialsComponentProps = {
 
 const TestimonialsComponent = ({ testimonials }: TestimonialsComponentProps) => {
   return (
-    <section className='py-8 sm:py-16 lg:py-24'>
+    <section className='bg-muted py-8 sm:py-16 lg:py-24'>
       <Carousel
         className='mx-auto grid max-w-7xl grid-cols-1 items-center gap-11 px-4 sm:px-6 md:grid-cols-2 lg:px-8'
         opts={{

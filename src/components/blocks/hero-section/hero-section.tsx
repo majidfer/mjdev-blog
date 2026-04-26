@@ -14,15 +14,15 @@ const HeroSection = ({ blogData }: { blogData: BlogPost[] }) => {
         {/* Hero Header */}
         <div className='flex max-w-4xl flex-col items-center gap-4 self-center text-center'>
           <Badge variant='outline' className='text-sm font-normal'>
-            .mjd/
+            mjd-personal-blog
           </Badge>
           <h1 className='text-3xl leading-[1.29167] font-semibold text-balance sm:text-4xl lg:text-5xl'>
             Selamat datang.
           </h1>
-          <p className='text-muted-foreground mx-auto max-w-2xl text-xl'>
-            Tenang, saya juga bingung mau mulai dari mana dan bagaimana. Jadi saya buat aja dulu, nanti kalau sudah
-            jadi, saya akan update lagi. Semoga bermanfaat.
+          <p className='text-muted-foreground mx-auto max-w-2xl'>
+            Tenang, saya juga bingung mau mulai bagaimana dan dari mana. Jadi saya buat aja dulu.
           </p>
+          <p className='text-muted-foreground max-w-2xl5 mx-auto'>Akan saya update, kalau ingat. Semoga bermanfaat.</p>
         </div>
 
         <div className='grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2'>

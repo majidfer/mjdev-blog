@@ -146,12 +146,20 @@ const Blog = ({ blogData = [] }: BlogProps) => {
       <div className='mx-auto max-w-7xl space-y-8 px-4 sm:px-6 lg:space-y-16 lg:px-8'>
         {/* Header */}
         <div className='space-y-4'>
-          {selectedTab === 'All' && <p className='text-sm'>Blogs</p>}
+          {selectedTab === 'All' && (
+            <Badge variant={'outline'} className='text-sm font-normal'>
+              Blogs
+            </Badge>
+          )}
           {selectedTab !== 'All' && (
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
-                  <BreadcrumbLink href='#'>Blog</BreadcrumbLink>
+                  <BreadcrumbLink href='#'>
+                    <Badge variant={'outline'} className='text-sm font-normal'>
+                      Blog
+                    </Badge>
+                  </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
