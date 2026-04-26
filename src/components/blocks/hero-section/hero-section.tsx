@@ -2,7 +2,6 @@ import { ArrowUpRightIcon, CalendarDaysIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Input } from '@/components/ui/input'
 import { Card, CardContent } from '@/components/ui/card'
 import type { BlogPost } from '@/components/blocks/blog-component/blog-component'
 
@@ -15,30 +14,24 @@ const HeroSection = ({ blogData }: { blogData: BlogPost[] }) => {
         {/* Hero Header */}
         <div className='flex max-w-4xl flex-col items-center gap-4 self-center text-center'>
           <Badge variant='outline' className='text-sm font-normal'>
-            Trusted by 1,000,000+ professionals
+            .mjd/
           </Badge>
           <h1 className='text-3xl leading-[1.29167] font-semibold text-balance sm:text-4xl lg:text-5xl'>
-            Build Better Products with Insights that Drive Real Impact.
+            Selamat datang.
           </h1>
           <p className='text-muted-foreground mx-auto max-w-2xl text-xl'>
-            Learn how to design, develop, launch, and grow digital products through practical knowledge and proven
-            frameworks.
+            Tenang, saya juga bingung mau mulai dari mana dan bagaimana. Jadi saya buat aja dulu, nanti kalau sudah
+            jadi, saya akan update lagi. Semoga bermanfaat.
           </p>
-          <form className='gap-3 py-1 max-sm:w-full max-sm:space-y-2 sm:flex sm:flex-row md:w-sm'>
-            <Input type='email' placeholder='Your email' className='bg-background h-10 flex-1 text-base' />
-            <Button size='lg' className='text-base max-sm:w-full' asChild type='submit'>
-              <a href='#'>Subscribe</a>
-            </Button>
-          </form>
         </div>
 
         <div className='grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2'>
           {featuredPosts.map((item, index) => (
             <div key={`${item.author}-${index}`} className='group h-full'>
-              <Card className='h-full overflow-hidden border-border/60 py-0 shadow-sm transition-shadow duration-200 group-hover:shadow-md'>
+              <Card className='border-border/60 h-full overflow-hidden py-0 shadow-sm transition-shadow duration-200 group-hover:shadow-md'>
                 <CardContent className='grid h-full grid-cols-1 px-0 xl:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)]'>
                   <div className='p-5 sm:p-6 xl:pr-3'>
-                    <a href={`/blog/${item.slug}`} className='block h-full overflow-hidden rounded-xl bg-muted'>
+                    <a href={`/blog/${item.slug}`} className='bg-muted block h-full overflow-hidden rounded-xl'>
                       <img
                         src={item.imageUrl}
                         alt={item.imageAlt}
@@ -47,11 +40,11 @@ const HeroSection = ({ blogData }: { blogData: BlogPost[] }) => {
                       />
                     </a>
                   </div>
-                  <div className='flex h-full flex-col justify-between gap-5 p-5 pt-0 sm:p-6 sm:pt-0 xl:pl-3 xl:pt-6'>
+                  <div className='flex h-full flex-col justify-between gap-5 p-5 pt-0 sm:p-6 sm:pt-0 xl:pt-6 xl:pl-3'>
                     <div className='space-y-5'>
                       <div className='space-y-2'>
                         <Badge
-                          className='bg-primary/10 text-primary hover:bg-primary/15 w-fit max-w-full shrink-0 border-0 px-3 py-1 text-xs sm:text-sm whitespace-nowrap'
+                          className='bg-primary/10 text-primary hover:bg-primary/15 w-fit max-w-full shrink-0 border-0 px-3 py-1 text-xs whitespace-nowrap sm:text-sm'
                           onClick={e => {
                             e.preventDefault()
                             e.stopPropagation()
@@ -77,7 +70,7 @@ const HeroSection = ({ blogData }: { blogData: BlogPost[] }) => {
                       <span className='cursor-pointer text-sm font-semibold'>{item.author}</span>
                       <Button
                         size='icon'
-                        className='border-border/80 bg-background text-foreground transition-colors group-hover:border-transparent group-hover:bg-primary group-hover:text-primary-foreground hover:border-transparent hover:bg-primary hover:text-primary-foreground'
+                        className='border-border/80 bg-background text-foreground group-hover:bg-primary group-hover:text-primary-foreground hover:bg-primary hover:text-primary-foreground transition-colors group-hover:border-transparent hover:border-transparent'
                         asChild
                       >
                         <a href={`/blog/${item.slug}`}>
