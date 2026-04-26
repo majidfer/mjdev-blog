@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useDeferredValue, useState } from 'react'
 
 import { SearchIcon, ArrowRightIcon, CalendarDaysIcon } from 'lucide-react'
 
@@ -39,6 +39,15 @@ interface BlogProps {
 }
 
 const BlogGrid = ({ posts, onCategoryClick }: { posts: BlogPost[]; onCategoryClick: (category: string) => void }) => {
+  if (posts.length === 0) {
+    return (
+      <div className='border-border/60 bg-muted/30 rounded-lg border border-dashed px-6 py-12 text-center'>
+        <p className='text-lg font-medium'>No posts found.</p>
+        <p className='text-muted-foreground mt-2'>Try a different keyword or switch to another category.</p>
+      </div>
+    )
+  }
+
   return (
     <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
       {posts.map(post => (
@@ -105,6 +114,8 @@ const BlogGrid = ({ posts, onCategoryClick }: { posts: BlogPost[]; onCategoryCli
 
 const Blog = ({ blogData = [] }: BlogProps) => {
   const [selectedTab, setSelectedTab] = useState('All')
+  const [searchQuery, setSearchQuery] = useState('')
+  const deferredSearchQuery = useDeferredValue(searchQuery)
 
   // Filter out featured posts to avoid duplication with hero section
   // Sort posts by ID in descending order (newest first)
@@ -113,6 +124,14 @@ const Blog = ({ blogData = [] }: BlogProps) => {
   // Dynamically generate categories from the available data
   const uniqueCategories = [...new Set(nonFeaturedPosts.map(post => post.category))]
   const categories = ['All', ...uniqueCategories.sort()]
+  const normalizedQuery = deferredSearchQuery.trim().toLowerCase()
+  const filteredPosts = nonFeaturedPosts.filter(post => {
+    if (!normalizedQuery) {
+      return true
+    }
+
+    return [post.title, post.description, post.category].some(value => value.toLowerCase().includes(normalizedQuery))
+  })
 
   const handleTabChange = (tab: string) => {
     setSelectedTab(tab)
@@ -143,12 +162,10 @@ const Blog = ({ blogData = [] }: BlogProps) => {
           )}
 
           <h2 className='text-2xl font-semibold md:text-3xl lg:text-4xl'>
-            Build Better Products with Insights & Inspiration.
+            Sebagian ini hasil belajar, sebagian lagi overthinking.
           </h2>
 
-          <p className='text-muted-foreground text-lg md:text-xl'>
-            Practical insights and real stories to guide your product from vision to reality.
-          </p>
+          <p className='text-muted-foreground text-lg md:text-xl'>Semuanya ditulis di sini.</p>
         </div>
 
         {/* Tabs and Search */}
@@ -178,6 +195,8 @@ const Blog = ({ blogData = [] }: BlogProps) => {
               <Input
                 type='search'
                 placeholder='Search'
+                value={searchQuery}
+                onChange={event => setSearchQuery(event.target.value)}
                 className='peer h-10 px-9 [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none [&::-webkit-search-results-button]:appearance-none [&::-webkit-search-results-decoration]:appearance-none'
               />
             </div>
@@ -185,14 +204,14 @@ const Blog = ({ blogData = [] }: BlogProps) => {
 
           {/* All Posts Tab */}
           <TabsContent value='All'>
-            <BlogGrid posts={nonFeaturedPosts} onCategoryClick={handleTabChange} />
+            <BlogGrid posts={filteredPosts} onCategoryClick={handleTabChange} />
           </TabsContent>
 
           {/* Category-specific Tabs */}
           {categories.slice(1).map((category, index) => (
             <TabsContent key={index} value={category}>
               <BlogGrid
-                posts={nonFeaturedPosts.filter(post => post.category === category)}
+                posts={filteredPosts.filter(post => post.category === category)}
                 onCategoryClick={handleTabChange}
               />
             </TabsContent>
