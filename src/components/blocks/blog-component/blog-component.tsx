@@ -55,8 +55,8 @@ const BlogGrid = ({ posts, onCategoryClick }: { posts: BlogPost[]; onCategoryCli
             }
           }}
         >
-          <Card className='shadow-none'>
-            <CardContent className='space-y-3.5'>
+          <Card className='h-full shadow-none'>
+            <CardContent className='flex h-full flex-col space-y-3.5'>
               <div className='mb-6 overflow-hidden rounded-lg sm:mb-12'>
                 <img
                   src={post.imageUrl}
@@ -81,7 +81,9 @@ const BlogGrid = ({ posts, onCategoryClick }: { posts: BlogPost[]; onCategoryCli
                   <p className='truncate'>{post.pubDate}</p>
                 </div>
               </div>
-              <h3 className='line-clamp-2 text-lg font-medium md:text-xl'>{post.title}</h3>
+              <h3 className='line-clamp-2 min-h-[2rem] text-lg leading-tight font-medium md:min-h-[3rem] md:text-xl'>
+                {post.title}
+              </h3>
               <p className='text-muted-foreground line-clamp-2'>{post.description}</p>
               <div className='flex items-center justify-between'>
                 <span className='text-sm font-medium'>{post.author}</span>
